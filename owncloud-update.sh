@@ -39,7 +39,7 @@ cd ..
 echo
 
 cd apps
-for APP in appframework bookmarks calendar contacts documents maps music news notes tasks
+for APP in appframework bookmarks calendar chat contacts documents maps music news notes tasks videos
 do
   echo "Updating $APP ..."
   cd $APP

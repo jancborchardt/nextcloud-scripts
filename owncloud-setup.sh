@@ -29,7 +29,7 @@ sudo ln -s $HOME/owncloud/apps2/* $HOME/owncloud/apps/
 echo
 
 cd apps
-for APP in appframework bookmarks calendar contacts documents maps music news notes tasks
+for APP in appframework bookmarks calendar chat contacts documents maps music news notes tasks videos
 do
   echo "Setting up $APP ..."
   git clone ${GITPREFIX}owncloud/$APP.git
