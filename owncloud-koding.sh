@@ -30,7 +30,7 @@ mkdir data
 sudo chown -R www-data:www-data data
 sudo chown -R :www-data config
 # Keep user permissions for apps and config.sample.php so you can still develop on them
-sudo chown user config/config.sample.php
+sudo chown $USER config/config.sample.php
 sudo chown -R :www-data apps
 echo
 
