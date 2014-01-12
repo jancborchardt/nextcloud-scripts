@@ -10,11 +10,15 @@ GITPREFIX="https://github.com/"
 INSTALLFOLDER=$HOME/Web/
 
 echo
+echo "This script sets up a development environment for ownCloud."
+echo "You’ll get the latest version from https://github.com/owncloud to play around with."
+
+echo
 echo "Installing dependencies ..."
 sudo apt-get install php-xml-parser php5-intl sqlite php5-sqlite curl php5-curl
 echo
 
-echo "Cloning core ..."
+echo "Downloading ownCloud core ..."
 cd $INSTALLFOLDER
 git clone ${GITPREFIX}owncloud/core.git owncloud
 cd owncloud
@@ -28,10 +32,9 @@ echo
 echo "Setting permissions ..."
 mkdir data
 sudo chown -R www-data:www-data data
-sudo chown -R :www-data config
-# Keep user permissions for apps and config.sample.php so you can still develop on them
-sudo chown $USER config/config.sample.php
-sudo chown -R :www-data apps
+# Keep user permissions for apps and config so you can still develop on them
+sudo chown -R www-data:$USER config
+sudo chown -R www-data:$USER apps
 echo
 
 echo "Enabling .htaccess ..."
