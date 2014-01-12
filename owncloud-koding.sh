@@ -12,10 +12,11 @@ INSTALLFOLDER=$HOME/Web/
 echo
 echo "Installing dependencies ..."
 sudo apt-get install php-xml-parser php5-intl sqlite php5-sqlite curl php5-curl
+echo
 
 echo "Cloning core ..."
 cd $INSTALLFOLDER
-git clone ${GITPREFIX}owncloud/core.git owncloud-dev
+git clone ${GITPREFIX}owncloud/core.git owncloud
 cd owncloud
 echo
 
@@ -31,12 +32,13 @@ sudo chown -R :www-data config
 # Keep user permissions for apps and config.sample.php so you can still develop on them
 sudo chown user config/config.sample.php
 sudo chown -R :www-data apps
+echo
 
 echo "Enabling .htaccess ..."
 sudo a2enmod rewrite
 sudo service apache2 restart
-
 echo
+
 echo "All set up!"
 echo "Now go to http://$USER.kd.io/owncloud to finish the installation"
 echo
