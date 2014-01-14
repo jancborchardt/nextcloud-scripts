@@ -1,7 +1,10 @@
 #!/bin/bash
 # Set up ownCloud dev environment for Koding.com
-# "sh owncloud-koding.sh" in your home folder
 # Jan-Christoph Borchardt, http://jancborchardt.net
+#
+# One-liner to run from your terminal:
+# wget https://raw.github.com/jancborchardt/owncloud-scripts/master/owncloud-koding.sh; sh owncloud-koding.sh
+
 
 # Change this to "git@github.com:" if you are a core developer
 GITPREFIX="https://github.com/"
