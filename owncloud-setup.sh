@@ -20,7 +20,8 @@ cd owncloud
 echo
 
 echo "Setting up 3rdparty ..."
-git clone ${GITPREFIX}owncloud/3rdparty.git
+git submodule init
+git submodule update
 echo
 
 echo "Setting up apps ..."

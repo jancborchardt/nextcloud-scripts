@@ -17,14 +17,7 @@ git branch --merged master | grep -v 'master$' | xargs git branch -d
 echo
 
 echo "Updating 3rdparty ..."
-cd 3rdparty
-git checkout master
-git pull --quiet
-echo "3rdparty updated. Latest changes:"
-git log -5 --pretty=format:"%h %Cblue%ar%x09%an %Creset%s"
-echo "Removing merged branches ..."
-git branch --merged master | grep -v 'master$' | xargs git branch -d
-cd ..
+git submodule update
 echo
 
 echo "Updating apps ..."
