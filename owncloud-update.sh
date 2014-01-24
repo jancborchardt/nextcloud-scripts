@@ -16,7 +16,7 @@ echo "Removing merged branches ..."
 git branch --merged master | grep -v 'master$' | xargs git branch -d
 echo
 
-echo "Updating 3rdparty ..."
+echo "Updating 3rdparty submodule ..."
 git submodule update
 echo
 
@@ -34,16 +34,18 @@ echo
 cd apps
 for APP in appframework bookmarks calendar chat contacts documents maps music news notes tasks videos
 do
-  echo "Updating $APP ..."
-  cd $APP
-  git checkout master
-  git pull --quiet
-  echo $APP "updated. Latest changes:"
-  git log -5 --pretty=format:"%h %Cblue%ar%x09%an %Creset%s"
-  echo "Removing merged branches ..."
-  git branch --merged master | grep -v 'master$' | xargs git branch -d
-  cd ..
-  echo
+  if [ -d "$APP" ]; then
+    echo "Updating $APP ..."
+    cd $APP
+    git checkout master
+    git pull --quiet
+    echo $APP "updated. Latest changes:"
+    git log -5 --pretty=format:"%h %Cblue%ar%x09%an %Creset%s"
+    echo "Removing merged branches ..."
+    git branch --merged master | grep -v 'master$' | xargs git branch -d
+    cd ..
+    echo
+  fi
 done
 
 echo
