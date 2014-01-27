@@ -19,7 +19,7 @@ echo
 echo
 echo
 echo "Installing dependencies ..."
-sudo apt-get install php-xml-parser php5-intl sqlite php5-sqlite curl php5-curl
+sudo apt-get install -y php-xml-parser php5-intl sqlite php5-sqlite curl php5-curl
 echo
 echo
 echo

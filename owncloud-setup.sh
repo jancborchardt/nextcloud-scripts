@@ -11,7 +11,7 @@ INSTALLFOLDER=$HOME
 
 echo
 echo "Installing dependencies ..."
-sudo apt-get install apache2 php5 php5-gd php-xml-parser php5-intl php5-sqlite php5-mysql php5-pgsql curl libcurl3 php5-curl
+sudo apt-get install -y apache2 php5 php5-gd php-xml-parser php5-intl php5-sqlite php5-mysql php5-pgsql curl libcurl3 php5-curl
 
 echo "Setting up core ..."
 cd $INSTALLFOLDER
