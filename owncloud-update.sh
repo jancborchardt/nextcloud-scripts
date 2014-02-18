@@ -32,7 +32,7 @@ cd ..
 echo
 
 cd apps
-for APP in appframework bookmarks calendar chat contacts documents maps music news notes tasks videos
+for APP in appframework bookmarks calendar chat contacts documents gallery mail maps mozilla_sync music news notes tasks text_editor videos
 do
   if [ -d "$APP" ]; then
     echo "Updating $APP ..."
@@ -45,6 +45,8 @@ do
     git branch --merged master | grep -v 'master$' | xargs git branch -d
     cd ..
     echo
+  else
+    echo "$APP folder not found. If you want to install it clone it first. Otherwise ignore this note."
   fi
 done
 
