@@ -16,7 +16,23 @@ rm Release.key
 # Install dependencies
 sudo apt-get install build-essential build-dep cmake qt-sdk libsqlite3-dev libneon27-dev
 
-# Build and install mirall (adjust /home/user to your path)
+
+# Get latest QTKeyChain and Mirall dev version
+git clone https://github.com/frankosterfeld/qtkeychain.git
+git clone git://github.com/owncloud/mirall.git
+
+
+# Build and install QTKeyChain
+mkdir qtkeychain-build
+cd qtkeychain-build
+cmake ../qtkeychain
+make
+sudo make install
+cd ..
+sudo rm -r qtkeychain-build
+
+
+# Build and install Mirall
 mkdir mirall-build
 cd mirall-build
 cmake -DCMAKE_BUILD_TYPE="Debug" ../mirall
@@ -24,6 +40,11 @@ make
 sudo make install
 cd ..
 sudo rm -r mirall-build
+
+
+# Create proper library link
+sudo ldconfig
+sudo ln -s /usr/local/lib/arm-linux-gnueabihf/libqtkeychain.so.0 /usr/local/lib/
 
 
 echo
