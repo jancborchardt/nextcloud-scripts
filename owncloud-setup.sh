@@ -11,7 +11,7 @@ INSTALLFOLDER=$HOME
 
 echo
 echo "Installing dependencies ..."
-sudo apt-get install -y git apache2 php5 php5-gd php-xml-parser php5-intl php5-sqlite php5-mysql php5-pgsql curl libcurl3 php5-curl
+sudo apt-get install -y git apache2 php5 php5-gd php-xml-parser php5-intl php5-sqlite php5-mysql php5-pgsql curl libcurl3 php5-curl php5-json
 
 echo "Setting up core ..."
 cd $INSTALLFOLDER
@@ -30,7 +30,7 @@ sudo ln -s $HOME/owncloud/apps2/* $HOME/owncloud/apps/
 echo
 
 cd apps
-for APP in appframework bookmarks calendar chat contacts documents gallery mail maps mozilla_sync music news notes tasks text_editor videos
+for APP in appframework bookmarks calendar chat contacts documents files_texteditor gallery mail maps mozilla_sync music news notes tasks videos
 do
   echo "Setting up $APP ..."
   git clone ${GITPREFIX}owncloud/$APP.git
