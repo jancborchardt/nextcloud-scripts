@@ -50,10 +50,10 @@ cd ..
 echo "Setting permissions ..."
 mkdir data
 sudo chown -R www-data:www-data data
-sudo chown -R :www-data config
-# Keep user permissions for apps and config.sample.php so you can still develop on them
-sudo chown user config/config.sample.php
-sudo chown -R :www-data apps
+sudo chown :www-data config/
+sudo chmod 775 config/
+sudo chown :www-data apps/
+sudo chmod 775 apps/
 
 echo "Symlinking to /var/www ..."
 sudo mkdir /var/www
