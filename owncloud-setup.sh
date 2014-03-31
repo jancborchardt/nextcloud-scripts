@@ -49,7 +49,7 @@ cd ..
 
 echo "Setting permissions ..."
 mkdir data
-sudo chown -R www-data:www-data data
+sudo chown www-data:www-data data
 sudo chown :www-data config/
 sudo chmod 775 config/
 sudo chown :www-data apps/
