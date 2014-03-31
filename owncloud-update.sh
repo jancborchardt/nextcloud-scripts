@@ -12,6 +12,7 @@ git checkout master
 git pull --quiet
 echo "core updated. Latest changes:"
 git --no-pager log -5 --pretty=format:"%h %Cblue%ar%x09%an %Creset%s"
+echo
 echo "Removing merged branches ..."
 git branch --merged master | grep -v 'master$' | xargs git branch -d
 echo
@@ -26,6 +27,7 @@ git checkout master
 git pull --quiet
 echo "apps updated. Latest changes:"
 git --no-pager log -5 --pretty=format:"%h %Cblue%ar%x09%an %Creset%s"
+echo
 echo "Removing merged branches ..."
 git branch --merged master | grep -v 'master$' | xargs git branch -d
 cd ..
@@ -41,6 +43,7 @@ do
     git pull --quiet
     echo $APP "updated. Latest changes:"
     git --no-pager log -5 --pretty=format:"%h %Cblue%ar%x09%an %Creset%s"
+    echo
     echo "Removing merged branches ..."
     git branch --merged master | grep -v 'master$' | xargs git branch -d
     cd ..
