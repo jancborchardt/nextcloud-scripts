@@ -15,6 +15,7 @@ git --no-pager log -5 --pretty=format:"%h %Cblue%ar%x09%an %Creset%s"
 echo
 echo "Removing merged branches ..."
 git branch --merged master | grep -v 'master$' | xargs git branch -d
+git fetch --prune --quiet
 echo
 
 echo "Updating 3rdparty submodule ..."
@@ -30,6 +31,7 @@ git --no-pager log -5 --pretty=format:"%h %Cblue%ar%x09%an %Creset%s"
 echo
 echo "Removing merged branches ..."
 git branch --merged master | grep -v 'master$' | xargs git branch -d
+git fetch --prune --quiet
 cd ..
 echo
 
@@ -46,6 +48,7 @@ do
     echo
     echo "Removing merged branches ..."
     git branch --merged master | grep -v 'master$' | xargs git branch -d
+    git fetch --prune --quiet
     cd ..
     echo
   else
