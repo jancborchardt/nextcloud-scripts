@@ -39,7 +39,7 @@ ln -s $HOME/owncloud/apps2/updater $HOME/owncloud/apps/
 echo
 
 cd apps
-for APP in appframework bookmarks calendar chat contacts documents files_texteditor gallery mail maps mozilla_sync music news notes tasks videos
+for APP in bookmarks calendar chat contacts documents files_texteditor gallery mail maps mozilla_sync music news notes tasks videos
 do
   echo "Setting up $APP ..."
   git clone ${GITPREFIX}owncloud/$APP.git
