@@ -27,19 +27,15 @@ echo
 echo "Setting up apps ..."
 git clone ${GITPREFIX}owncloud/apps.git apps2
 # Only take the needed apps from the apps repository
-ln -s $HOME/owncloud/apps2/activity $HOME/owncloud/apps/
 ln -s $HOME/owncloud/apps2/files_odfviewer $HOME/owncloud/apps/
-ln -s $HOME/owncloud/apps2/files_pdfviewer $HOME/owncloud/apps/
 ln -s $HOME/owncloud/apps2/files_videoviewer $HOME/owncloud/apps/
-ln -s $HOME/owncloud/apps2/firstrunwizard $HOME/owncloud/apps/
 ln -s $HOME/owncloud/apps2/l10n $HOME/owncloud/apps/
 ln -s $HOME/owncloud/apps2/search $HOME/owncloud/apps/
 ln -s $HOME/owncloud/apps2/tasks $HOME/owncloud/apps/
-ln -s $HOME/owncloud/apps2/updater $HOME/owncloud/apps/
 echo
 
 cd apps
-for APP in bookmarks calendar chat contacts documents files_texteditor gallery mail maps mozilla_sync music news notes tasks videos
+for APP in activity bookmarks calendar chat contacts documents files_pdfviewer files_texteditor firstrunwizard gallery mail maps mozilla_sync music news notes tasks updater videos
 do
   echo "Setting up $APP ..."
   git clone ${GITPREFIX}owncloud/$APP.git

@@ -36,7 +36,7 @@ cd ..
 echo
 
 cd apps
-for APP in bookmarks calendar chat contacts documents gallery mail maps mozilla_sync music news notes tasks text_editor videos
+for APP in activity bookmarks calendar chat contacts documents files_pdfviewer files_texteditor firstrunwizard gallery mail maps mozilla_sync music news notes tasks updater videos
 do
   if [ -d "$APP" ]; then
     echo "Updating $APP ..."
