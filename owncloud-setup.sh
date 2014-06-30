@@ -24,16 +24,6 @@ git submodule init
 git submodule update
 echo
 
-echo "Setting up apps ..."
-git clone ${GITPREFIX}owncloud/apps.git apps2
-# Only take the needed apps from the apps repository
-ln -s $HOME/owncloud/apps2/files_odfviewer $HOME/owncloud/apps/
-ln -s $HOME/owncloud/apps2/files_videoviewer $HOME/owncloud/apps/
-ln -s $HOME/owncloud/apps2/l10n $HOME/owncloud/apps/
-ln -s $HOME/owncloud/apps2/search $HOME/owncloud/apps/
-ln -s $HOME/owncloud/apps2/tasks $HOME/owncloud/apps/
-echo
-
 cd apps
 for APP in activity bookmarks calendar chat contacts documents files_pdfviewer files_texteditor firstrunwizard gallery mail maps mozilla_sync music news notes tasks updater videos
 do

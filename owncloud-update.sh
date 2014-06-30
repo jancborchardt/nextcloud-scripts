@@ -22,19 +22,6 @@ echo "Updating 3rdparty submodule ..."
 git submodule update
 echo
 
-echo "Updating apps ..."
-cd apps2
-git checkout master
-git pull --quiet
-echo "apps updated. Latest changes:"
-git --no-pager log -5 --pretty=format:"%h %Cblue%ar%x09%an %Creset%s"
-echo
-echo "Removing merged branches ..."
-git branch --merged master | grep -v 'master$' | xargs git branch -d
-git fetch --prune --quiet
-cd ..
-echo
-
 cd apps
 for APP in activity bookmarks calendar chat contacts documents files_pdfviewer files_texteditor firstrunwizard gallery mail maps mozilla_sync music news notes tasks updater videos
 do
