@@ -49,6 +49,7 @@ sudo sh -c 'echo "extension=apc.so" >> /etc/php5/cgi/conf.d/apc.ini'
 sudo sh -c 'echo "apc.enabled=1" >> /etc/php5/cgi/conf.d/apc.ini'
 sudo sh -c 'echo "apc.shm_size=30" >> /etc/php5/cgi/conf.d/apc.ini'
 
+# TODO
 # Further optimizations from http://www.instructables.com/id/Raspberry-Pi-Owncloud-dropbox-clone/?ALLSTEPS
 # (Especially modifications to the php.ini, 000-default and .htaccess)
 
@@ -80,7 +81,9 @@ sudo apt-get install pagekite
 # Configure the system https://pagekite.net/wiki/Howto/GNULinux/ConfigureYourSystem/
 sudo nano /etc/pagekite.d/10_account.rc
 sudo mv /etc/pagekite.d/80_httpd.rc.sample /etc/pagekite.d/80_httpd.rc
+sudo mv /etc/pagekite.d/80_sshd.rc.sample /etc/pagekite.d/80_sshd.rc
 sudo invoke-rc.d pagekite restart
+# TODO set up SSH connection: https://pagekite.net/wiki/Howto/SshOverPageKite/
 
 
 
