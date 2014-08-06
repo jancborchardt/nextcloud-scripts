@@ -3,6 +3,8 @@
 # Plus extras (easy access and backups)
 # Making it a fully capable home server
 
+
+
 # Some prerequisites:
 # 1. Get a Raspberry Pi, including power supply, SD card and network cable
 # 2. Install Raspbian on the SD card using your computer
@@ -11,10 +13,14 @@
 # 4. Use SSH to log in to the Pi from your laptop: ssh pi@raspberrypi
 #    http://www.raspberrypi.org/documentation/remote-access/ssh/unix.md
 
+
+
 # Now run this script!
 # 5. Use raspi-config to expand the filesystem and set a password
 # http://www.raspberrypi.org/documentation/configuration/raspi-config.md
 sudo raspi-config
+
+
 
 # 6. Install Apache & PHP: http://www.raspberrypi.org/documentation/remote-access/web-server/apache.md
 sudo apt-get install apache2 -y
@@ -27,20 +33,42 @@ sudo apt-get install php5 libapache2-mod-php5 -y
 # mysql -uroot -p
 # In MySQL: create database owncloud; exit;
 
-# 7. Download ownCloud
-# See https://github.com/jancborchardt/owncloud-scripts/blob/master/owncloud-setup.sh
-# And optimizations from http://www.instructables.com/id/Raspberry-Pi-Owncloud-dropbox-clone/?ALLSTEPS
-# (Especially php-apc, modifications to the php.ini, 000-default and .htaccess)
-git clone --branch=stable7 --single-branch --depth=1 https://github.com/owncloud/core.git owncloudstable7
-cd owncloud
-git submodule init
-git submodule update
+
+
+# 7. Download and set up ownCloud
+# Install ownCloud from packages https://owncloud.org/install/#instructions-packages
+sudo echo 'deb http://download.opensuse.org/repositories/isv:/ownCloud:/community/Debian_7.0/ /' >> /etc/apt/sources.list.d/owncloud.list 
+sudo apt-get update
+sudo apt-get install owncloud
+wget http://download.opensuse.org/repositories/isv:ownCloud:community/Debian_7.0/Release.key
+sudo apt-key add - < Release.key
+
+echo 'Setting up APC for caching ...'
+sudo apt-get install php-apc -y
+sudo sh -c 'echo "extension=apc.so" >> /etc/php5/cgi/conf.d/apc.ini'
+sudo sh -c 'echo "apc.enabled=1" >> /etc/php5/cgi/conf.d/apc.ini'
+sudo sh -c 'echo "apc.shm_size=30" >> /etc/php5/cgi/conf.d/apc.ini'
+
+# Further optimizations from http://www.instructables.com/id/Raspberry-Pi-Owncloud-dropbox-clone/?ALLSTEPS
+# (Especially modifications to the php.ini, 000-default and .htaccess)
+
+sudo a2enmod rewrite
+echo "Restarting server ..."
+sudo service apache2 restart
+
+
 
 # 8. Finish the ownCloud installation using the web interface
 echo 'Now go to http://raspberrypi/owncloud and finish the installation'
+echo "Choose an admin username and password, and you're done! :)"
+
+
+
 
 
 # ENHANCEMENTS
+
+
 
 # 9. Install PageKite to be able to access your Pi remotely with ease
 # https://pagekite.net/wiki/Howto/GNULinux/DebianPackage/
@@ -48,10 +76,14 @@ echo deb http://pagekite.net/pk/deb/ pagekite main | sudo tee -a /etc/apt/source
 sudo apt-key adv --recv-keys --keyserver keys.gnupg.net AED248B1C7B2CAC3
 sudo apt-get update
 sudo apt-get install pagekite
+
 # Configure the system https://pagekite.net/wiki/Howto/GNULinux/ConfigureYourSystem/
 sudo nano /etc/pagekite.d/10_account.rc
 sudo mv /etc/pagekite.d/80_httpd.rc.sample /etc/pagekite.d/80_httpd.rc
 sudo invoke-rc.d pagekite restart
 
+
+
 # 10. Set up backups
 # http://www.raspberrypi.org/documentation/linux/filesystem/backup.md
+# TODO
