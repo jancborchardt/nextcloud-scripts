@@ -37,11 +37,12 @@ sudo apt-get install php5 libapache2-mod-php5 -y
 
 # 7. Download and set up ownCloud
 # Install ownCloud from packages https://owncloud.org/install/#instructions-packages
-sudo echo 'deb http://download.opensuse.org/repositories/isv:/ownCloud:/community/Debian_7.0/ /' >> /etc/apt/sources.list.d/owncloud.list 
-sudo apt-get update
-sudo apt-get install owncloud
+sudo sh -c 'echo "deb http://download.opensuse.org/repositories/isv:/ownCloud:/community/Debian_7.0/ /" >> /etc/apt/sources.list.d/owncloud.list'
 wget http://download.opensuse.org/repositories/isv:ownCloud:community/Debian_7.0/Release.key
 sudo apt-key add - < Release.key
+rm Release.key
+sudo apt-get update
+sudo apt-get install owncloud
 
 echo 'Setting up APC for caching ...'
 sudo apt-get install php-apc -y
@@ -54,6 +55,7 @@ sudo sh -c 'echo "apc.shm_size=30" >> /etc/php5/cgi/conf.d/apc.ini'
 # (Especially modifications to the php.ini, 000-default and .htaccess)
 
 sudo a2enmod rewrite
+sudo a2enmod headers
 echo "Restarting server ..."
 sudo service apache2 restart
 
