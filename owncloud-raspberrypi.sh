@@ -45,7 +45,8 @@ sudo apt-get update
 sudo apt-get install owncloud
 
 echo 'Setting up APC for caching ...'
-sudo apt-get install php-apc -y
+sudo apt-get install php-apc php5-dev -y
+sudo pecl install apc
 sudo sh -c 'echo "extension=apc.so" >> /etc/php5/cgi/conf.d/apc.ini'
 sudo sh -c 'echo "apc.enabled=1" >> /etc/php5/cgi/conf.d/apc.ini'
 sudo sh -c 'echo "apc.shm_size=30" >> /etc/php5/cgi/conf.d/apc.ini'
