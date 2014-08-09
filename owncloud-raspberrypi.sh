@@ -103,3 +103,9 @@ nano authorized_keys
 cd ..
 chmod 700 .ssh/
 chmod 600 .ssh/authorized_keys
+#TODO: add ssh pi@raspberrypi to .bashrc on laptop
+
+# 12. Configure wifi usb dongle
+# http://raspberrypihq.com/how-to-add-wifi-to-the-raspberry-pi/
+
+# 13. Add IP address to known_hosts in ownCloud config.php
