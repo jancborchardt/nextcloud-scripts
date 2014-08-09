@@ -68,12 +68,6 @@ echo "Choose an admin username and password, and you're done! :)"
 
 
 
-
-
-# ENHANCEMENTS
-
-
-
 # 9. Install PageKite to be able to access your Pi remotely with ease
 # https://pagekite.net/wiki/Howto/GNULinux/DebianPackage/
 echo deb http://pagekite.net/pk/deb/ pagekite main | sudo tee -a /etc/apt/sources.list
@@ -83,11 +77,15 @@ sudo apt-get install pagekite
 
 # Configure the system https://pagekite.net/wiki/Howto/GNULinux/ConfigureYourSystem/
 sudo nano /etc/pagekite.d/10_account.rc
+# TODO prompt to input kite name and secret
 sudo mv /etc/pagekite.d/80_httpd.rc.sample /etc/pagekite.d/80_httpd.rc
 sudo mv /etc/pagekite.d/80_sshd.rc.sample /etc/pagekite.d/80_sshd.rc
 sudo invoke-rc.d pagekite restart
 # TODO set up SSH connection: https://pagekite.net/wiki/Howto/SshOverPageKite/
-
+# add this to ~/.ssh/config
+Host *.pagekite.me
+  CheckHostIP no
+  ProxyCommand /bin/nc -X connect -x %h:443 %h %p
 
 
 # 10. Set up backups
@@ -95,7 +93,25 @@ sudo invoke-rc.d pagekite restart
 # TODO
 
 
-# 11. If you have an SSH key, add the public key to the Pi for easier log in
+
+# 11. Automatic updates
+# TODO set as cronjob
+sudo apt-get update && sudo apt-get upgrade -y
+
+
+
+# 12. Configure wifi usb dongle
+# http://raspberrypihq.com/how-to-add-wifi-to-the-raspberry-pi/
+# TODO
+
+
+
+# 13. Add IP address to known_hosts in ownCloud config.php
+sudo nano /var/www/owncloud/config/config.php
+# TODO
+
+
+# 14. If you have an SSH key, add the public key to the Pi for easier log in
 mkdir .ssh
 cd .ssh
 nano authorized_keys
@@ -104,8 +120,3 @@ cd ..
 chmod 700 .ssh/
 chmod 600 .ssh/authorized_keys
 #TODO: add ssh pi@raspberrypi to .bashrc on laptop
-
-# 12. Configure wifi usb dongle
-# http://raspberrypihq.com/how-to-add-wifi-to-the-raspberry-pi/
-
-# 13. Add IP address to known_hosts in ownCloud config.php
