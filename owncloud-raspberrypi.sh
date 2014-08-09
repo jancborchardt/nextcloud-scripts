@@ -93,3 +93,13 @@ sudo invoke-rc.d pagekite restart
 # 10. Set up backups
 # http://www.raspberrypi.org/documentation/linux/filesystem/backup.md
 # TODO
+
+
+# 11. If you have an SSH key, add the public key to the Pi for easier log in
+mkdir .ssh
+cd .ssh
+nano authorized_keys
+#TODO: properly check if there is a key and copy it over
+cd ..
+chmod 700 .ssh/
+chmod 600 .ssh/authorized_keys
