@@ -45,8 +45,9 @@ echo "Symlinking to /var/www ..."
 sudo mkdir /var/www
 sudo ln -s $INSTALLFOLDER/owncloud /var/www/
 
-echo "Enabling .htaccess ..."
+echo "Settings from .htaccess ..."
 sudo a2enmod rewrite
+sudo a2enmod headers
 
 echo "Starting server ..."
 sudo service apache2 restart
