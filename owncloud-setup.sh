@@ -20,8 +20,7 @@ cd owncloud
 echo
 
 echo "Setting up 3rdparty ..."
-git submodule init
-git submodule update
+git submodule update --init
 echo
 
 cd apps

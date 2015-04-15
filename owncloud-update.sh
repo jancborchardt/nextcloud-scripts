@@ -19,7 +19,7 @@ git fetch --prune --quiet
 echo
 
 echo "Updating 3rdparty submodule ..."
-git submodule update
+git submodule update --init
 echo
 
 cd apps
