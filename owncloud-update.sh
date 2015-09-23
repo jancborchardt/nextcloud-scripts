@@ -23,7 +23,7 @@ git submodule update --init
 echo
 
 cd apps
-for APP in activity bookmarks calendar chat contacts documents files_pdfviewer files_texteditor firstrunwizard gallery mail maps mozilla_sync music news notes tasks updater videos
+for APP in activity bookmarks calendar chat contacts documents files_pdfviewer files_texteditor firstrunwizard gallery mail maps music news notes notifications tasks updater
 do
   if [ -d "$APP" ]; then
     echo "Updating $APP ..."
