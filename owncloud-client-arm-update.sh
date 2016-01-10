@@ -1,6 +1,7 @@
 #!/bin/bash
 # Update ownCloud sync client on Samsung ARM Chromebook with Ubuntu
 # Based on the build instructions: http://doc.owncloud.org/desktop/1.3/building.html
+# Possibly outdated
 
 
 # Get latest csync and mirall dev versions

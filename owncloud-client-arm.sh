@@ -1,6 +1,7 @@
 #!/bin/bash
 # Install ownCloud sync client on Samsung ARM Chromebook with Ubuntu
 # Based on the build instructions: http://doc.owncloud.org/desktop/1.3/building.html
+# Possibly outdated
 
 
 # Add repository from Open Build Service
