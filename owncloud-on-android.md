@@ -3,9 +3,9 @@
 How to set up a server / development environment.
 
 Apps you need:
-- Pocket Git (others like SGit, Agit, Terminal IDE, Git, Gidder, etc. are pretty much unmaintained)
-- Server for PHP (others like Palapa, KSWeb, Servers Ultimate etc. are unmaintained)
-- optional: DroidEdit (or other text editor of your choice like AWD or Turbo Editor)
+- [Pocket Git](https://play.google.com/store/apps/details?id=com.aor.pocketgit) (others like SGit, Agit, Terminal IDE, Git, Gidder, etc. are pretty much unmaintained)
+- [Server for PHP](https://play.google.com/store/apps/details?id=com.esminis.server.php) (others like Palapa, KSWeb, Servers Ultimate etc. are unmaintained)
+- optional: [DroidEdit](https://play.google.com/store/apps/details?id=com.aor.droidedit) (or other text editor of your choice like AWD or Turbo Editor)
 
 Steps to set it up:
 
