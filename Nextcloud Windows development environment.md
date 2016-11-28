@@ -6,12 +6,12 @@
 - Install VirtualBox: https://www.virtualbox.org/wiki/Downloads (click »Windows hosts«)
 - Download Ubuntu Desktop https://www.ubuntu.com/download/desktop (Server if your laptop is slower) https://www.ubuntu.com/download/server
 - Set up the virtual machine
-	- standard settings
-	- choose the Ubuntu file you downloaded as image
-	- at the »Erase disk and install Ubuntu« it’s safe to do it because the virtual machine does not have access to your system :)
-	- at a choose »LAMP server« (enable with spacebar) at the »packages to install« step (if you missed it, just do »sudo apt-get install lamp-server^« in the installed Ubuntu)
-	- Install the guest additions to make shared folders work: sudo apt-get install virtualbox-guest-dkms (http://en.ig.ma/notebook/2012/virtualbox-guest-additions-on-ubuntu-server)
-	- Install the additional needed packages for Nextcloud: sudo apt-get install php7.0-curl php7.0-gd php7.0-mbstring php7.0-sqlite3 php7.0-xml php7.0-zip
+	- Standard settings
+	- Choose the Ubuntu file you downloaded as image
+	- At the »Erase disk and install Ubuntu« it’s safe to do it because the virtual machine does not have access to your system :)
+	- At the step of where to install additional packages, choose »LAMP server« – enable with spacebar (if you missed it, just do `sudo apt-get install lamp-server^` in the installed Ubuntu)
+	- Install the guest additions to make shared folders work: `sudo apt-get install virtualbox-guest-dkms` (http://en.ig.ma/notebook/2012/virtualbox-guest-additions-on-ubuntu-server)
+	- Install the additional needed packages for Nextcloud: `sudo apt-get install php7.0-curl php7.0-gd php7.0-mbstring php7.0-sqlite3 php7.0-xml php7.0-zip`
 	- For that virtual machine, change the »network attached to« from NAT to Host-only so the VM is accessible by Windows: https://www.youtube.com/watch?v=1DtLEmqaOxw (This will also cut off internet access for the VM, but it’s not needed anymore) (TODO: Try the IP it gives out for bridged so it gets both?)
 
 
@@ -25,14 +25,14 @@
 
 - In VirtualBox, go to Settings -> Shared Folders and add that Nextcloud folder http://www.howtogeek.com/187703/how-to-access-folders-on-your-host-machine-from-an-ubuntu-virtual-machine-in-virtualbox/
 	- As manual mount because otherwise there are permission issues:
-	sudo mount -t vboxsf -o uid=$UID,gid=$(id -g) nextcloud /var/www/html/nextcloud (DO ON STARTUP! and maybe for www-data?) (http://www.htpcbeginner.com/mount-virtualbox-shared-folder-on-ubuntu-linux/)
-	- create a folder »nextcloud-data« in /var/www: mkdir /var/www/nextcloud-data
-	- give the web server user permission: chown www-data:www-data nextcloud-data
+	`sudo mount -t vboxsf -o uid=$UID,gid=$(id -g) nextcloud /var/www/html/nextcloud` (TODO: do on startup, and maybe for www-data directly?) (http://www.htpcbeginner.com/mount-virtualbox-shared-folder-on-ubuntu-linux/)
+	- create a folder »nextcloud-data« in /var/www: `mkdir /var/www/nextcloud-data`
+	- give the web server user permission: `chown www-data:www-data nextcloud-data`
 
 
 ## (optional) Give a nice address to access the VM
 
-- Add `192.168.56.101 nextcloud.dev` to the Windows hosts file (or whatever the IP of the virtual machine is, you can find out via the command »ifconfig«) https://askubuntu.com/questions/52147/how-can-i-access-apache-on-virtualbox-guest-from-host
+- Add `192.168.56.101 nextcloud.dev` to the Windows hosts file (or whatever the IP of the virtual machine is, you can find out via the command `ifconfig` in the Ubuntu VM) https://askubuntu.com/questions/52147/how-can-i-access-apache-on-virtualbox-guest-from-host
 - TODO: How to make it HTTPS so Spreed / WebRTC works?
 
 
