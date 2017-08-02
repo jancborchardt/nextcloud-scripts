@@ -1,6 +1,6 @@
 #!/bin/bash
-# Set up ownCloud core and apps from latest git master
-# Hopefully git submodules will supersede this eventually
+# Set up Nextcloud server & apps from latest git master
+# Perfect for local development environment
 # Jan-Christoph Borchardt, http://jancborchardt.net
 
 # Change this to git://github.com/ if you’re not a core developer
@@ -11,12 +11,13 @@ INSTALLFOLDER=$HOME
 
 echo
 echo "Installing dependencies ..."
-sudo apt-get install -y git apache2 php5 php5-gd php-xml-parser php5-intl php5-sqlite php5-mysql php5-pgsql curl libcurl3 php5-curl php5-json
+sudo apt-get install -y git apache2 sqlite3 libapache2-mod-php7.0 php7.0-gd php7.0-json php7.0-sqlite3 php7.0-curl php7.0-mbstring php7.0-intl php7.0-mcrypt php-imagick php7.0-xml php7.0-zip
 
-echo "Setting up core ..."
+
+echo "Setting up server ..."
 cd $INSTALLFOLDER
-git clone ${GITPREFIX}owncloud/core.git owncloud
-cd owncloud
+git clone ${GITPREFIX}nextcloud/server.git nextcloud
+cd nextcloud
 echo
 
 echo "Setting up 3rdparty ..."
@@ -27,7 +28,7 @@ cd apps
 for APP in activity bookmarks calendar chat contacts documents files_pdfviewer files_texteditor firstrunwizard gallery mail maps mozilla_sync music news notes tasks updater videos
 do
   echo "Setting up $APP ..."
-  git clone ${GITPREFIX}owncloud/$APP.git
+  git clone ${GITPREFIX}nextcloud/$APP.git
   echo
 done
 cd ..
@@ -42,7 +43,7 @@ sudo chmod 775 apps/
 
 echo "Symlinking to /var/www ..."
 sudo mkdir /var/www
-sudo ln -s $INSTALLFOLDER/owncloud /var/www/
+sudo ln -s $INSTALLFOLDER/nextcloud /var/www/
 
 echo "Settings from .htaccess ..."
 sudo a2enmod rewrite
@@ -54,5 +55,5 @@ sudo systemctl restart httpd.service
 
 echo
 echo "All set up!"
-echo "Now go to http://localhost/owncloud to finish the installation"
+echo "Now go to http://localhost/nextcloud to finish the installation"
 echo
