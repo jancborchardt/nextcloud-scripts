@@ -25,7 +25,7 @@ git submodule update --init
 echo
 
 cd apps
-for APP in activity calendar contacts files_pdfviewer files_texteditor firstrunwizard gallery mail maps news notes tasks
+for APP in activity bookmarks calendar circles contacts dashboard deck files_filter files_pdfviewer files_texteditor files_videoplayer firstrunwizard gallery jsxc.nextcloud logreader mail maps news nextcloud_announcements notes notifications password_policy richdocuments serverinfo socialsharing spreed survey_client tasks user_external
 do
   echo "Setting up $APP ..."
   git clone ${GITPREFIX}nextcloud/$APP.git
