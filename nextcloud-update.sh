@@ -1,10 +1,10 @@
 #!/bin/bash
-# Update ownCloud core and apps from latest git master
-# Hopefully git submodules will supersede this eventually
+# Update Nextcloud server & apps from latest git master
+# Perfect for local development environment
 # Jan-Christoph Borchardt, http://jancborchardt.net
 
-# Change this path if you installed ownCloud somewhere else
-cd $HOME/owncloud
+# Change this path if you installed Nextcloud somewhere else
+cd $HOME/nextcloud
 
 echo
 echo "Updating core ..."
@@ -23,7 +23,7 @@ git submodule update --init
 echo
 
 cd apps
-for APP in activity bookmarks calendar chat contacts documents files_pdfviewer files_texteditor firstrunwizard gallery mail maps music news notes notifications tasks updater
+for APP in activity bookmarks calendar circles contacts dashboard deck files_filter files_pdfviewer files_texteditor files_videoplayer firstrunwizard gallery jsxc.nextcloud logreader mail maps news nextcloud_announcements notes notifications password_policy richdocuments serverinfo socialsharing spreed survey_client tasks user_external
 do
   if [ -d "$APP" ]; then
     echo "Updating $APP ..."
