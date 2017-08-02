@@ -25,7 +25,9 @@
 
 - In VirtualBox, go to Settings -> Shared Folders and add that Nextcloud folder http://www.howtogeek.com/187703/how-to-access-folders-on-your-host-machine-from-an-ubuntu-virtual-machine-in-virtualbox/
 	- As manual mount because otherwise there are permission issues:
-	`sudo mount -t vboxsf -o uid=$UID,gid=$(id -g) nextcloud /var/www/html/nextcloud` (TODO: do on startup, and maybe for www-data directly?) (http://www.htpcbeginner.com/mount-virtualbox-shared-folder-on-ubuntu-linux/)
+	`sudo -H -u username mount -t vboxsf -o uid=$UID,gid=$(id -g) nextcloud /var/www/html/nextcloud` (TODO: do on startup, and maybe for www-data directly?) (http://www.htpcbeginner.com/mount-virtualbox-shared-folder-on-ubuntu-linux/)
+	- (if that doesn't work try `sudo mount -t vboxsf -o uid=$UID,gid=$(id -g) nextcloud /var/www/html/nextcloud`)
+	- add this command to sudo nano /etc/rc.local before »exit 0« https://askubuntu.com/questions/294736/run-a-shell-script-as-another-user-that-has-no-password
 	- create a folder »nextcloud-data« in /var/www: `mkdir /var/www/nextcloud-data`
 	- give the web server user permission: `chown www-data:www-data nextcloud-data`
 

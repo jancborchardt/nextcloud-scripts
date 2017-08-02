@@ -1,20 +1,20 @@
 #!/bin/bash
-# Set up ownCloud dev environment for Koding.com
+# Set up Nextcloud dev environment for Koding.com
 # Jan-Christoph Borchardt, http://jancborchardt.net
 #
 # One-liner to run from your terminal:
-# wget https://raw.github.com/jancborchardt/owncloud-scripts/master/owncloud-koding.sh; sh owncloud-koding.sh
+# wget https://raw.github.com/jancborchardt/nextcloud-scripts/master/nextcloud-koding.sh; sh nextcloud-koding.sh
 
 
 # Change this to "git@github.com:" if you are a core developer
 GITPREFIX="https://github.com/"
 
-# Change this path if you want to install ownCloud somewhere else
+# Change this path if you want to install Nextcloud somewhere else
 INSTALLFOLDER=$HOME/Web/
 
 echo
-echo "This script sets up a development environment for ownCloud."
-echo "You’ll get the latest version from https://github.com/owncloud to play around with."
+echo "This script sets up a development environment for Nextcloud."
+echo "You’ll get the latest version from https://github.com/nextcloud to play around with."
 echo
 echo
 echo
@@ -23,10 +23,10 @@ sudo apt-get install -y php-xml-parser php5-intl sqlite php5-sqlite curl php5-cu
 echo
 echo
 echo
-echo "Downloading ownCloud core ..."
+echo "Downloading Nextcloud server ..."
 cd $INSTALLFOLDER
-git clone ${GITPREFIX}owncloud/core.git owncloud
-cd owncloud
+git clone ${GITPREFIX}nextcloud/server.git nextcloud
+cd nextcloud
 echo
 echo
 echo
@@ -52,5 +52,5 @@ echo
 echo
 echo
 echo "All set up!"
-echo "To finish the installation, go to http://$USER.kd.io/owncloud"
+echo "To finish the installation, go to http://$USER.kd.io/nextcloud"
 echo
