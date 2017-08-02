@@ -6,7 +6,7 @@
 # Change this to git://github.com/ if you’re not a core developer
 GITPREFIX="git@github.com:"
 
-# Change this path if you want to install ownCloud somewhere else
+# Change this path if you want to install Nextcloud somewhere else
 INSTALLFOLDER=$HOME
 
 echo
@@ -25,7 +25,7 @@ git submodule update --init
 echo
 
 cd apps
-for APP in activity bookmarks calendar chat contacts documents files_pdfviewer files_texteditor firstrunwizard gallery mail maps mozilla_sync music news notes tasks updater videos
+for APP in activity calendar contacts files_pdfviewer files_texteditor firstrunwizard gallery mail maps news notes tasks
 do
   echo "Setting up $APP ..."
   git clone ${GITPREFIX}nextcloud/$APP.git
