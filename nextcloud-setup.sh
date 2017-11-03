@@ -11,7 +11,7 @@ INSTALLFOLDER=$HOME
 
 echo
 echo "Installing dependencies ..."
-sudo apt-get install -y git apache2 sqlite3 libapache2-mod-php7.0 php7.0-gd php7.0-json php7.0-sqlite3 php7.0-curl php7.0-mbstring php7.0-intl php7.0-mcrypt php-imagick php7.0-xml php7.0-zip
+sudo apt-get install -y git apache2 sqlite3 libapache2-mod-php7.0 php7.0-gd php7.0-json php7.0-sqlite3 php7.0-curl php7.0-mbstring php7.0-intl php7.0-mcrypt php-imagick php7.0-xml php7.0-zip composer
 
 
 echo "Setting up server ..."
@@ -25,7 +25,7 @@ git submodule update --init
 echo
 
 cd apps
-for APP in activity bookmarks calendar circles contacts dashboard deck files_filter files_pdfviewer files_texteditor files_videoplayer firstrunwizard gallery jsxc.nextcloud logreader mail maps news nextcloud_announcements notes notifications password_policy richdocuments serverinfo socialsharing spreed survey_client tasks user_external
+for APP in activity bookmarks calendar circles contacts deck files_filter files_pdfviewer files_texteditor files_videoplayer firstrunwizard gallery jsxc.nextcloud logreader mail maps news nextcloud_announcements notes notifications password_policy richdocuments serverinfo socialsharing spreed survey_client tasks user_external
 do
   echo "Setting up $APP ..."
   git clone ${GITPREFIX}nextcloud/$APP.git
