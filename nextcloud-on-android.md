@@ -12,7 +12,7 @@
 - Allow Termux to access storage outside of own folder `termux-setup-storage`
 - (If you want to clone with Termux: `cd /storage/emulated/0/ && git clone https://github.com/nextcloud/server.git nextcloud`)
 - Get the Nextcloud submodules `cd /storage/emulated/0/nextcloud/ && git submodule update --init`
-- Start the server `php -S 0.0.0.0:8080 -t /storage/emulated/0/nextcloud/``
+- Start the server `php -S 0.0.0.0:8080 -t /storage/emulated/0/nextcloud/`
 
 ## Finish setup in [Firefox](https://www.mozilla.org/firefox/android/)
 - Go to `http://0.0.0.0:8080`
