@@ -1,9 +1,8 @@
 # Nextcloud development environment on macOS
 
-Install php7 and sqlite via Homebrew.
-Install the php7 extensions too
-
-Run php -S localhost:8000
+1. Install php7 and sqlite via Homebrew
+2. Install the php7 extensions too
+3. Run `php -S localhost:8000`
 
 
 ## Get the Nextcloud code
