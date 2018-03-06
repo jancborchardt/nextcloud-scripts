@@ -1,8 +1,10 @@
 # Nextcloud development environment on macOS
 
-1. Install php7 and sqlite via Homebrew
-2. Install the php7 extensions too
-3. Run `php -S localhost:8000`
+
+## Install dependencies
+
+- Install php7 and sqlite via Homebrew
+- Install the php7 extensions too
 
 
 ## Get the Nextcloud code
@@ -13,11 +15,12 @@
 
 ## Finish installation
 
-- In your browser, go to nextcloud.dev/nextcloud
+- Open a Terminal and in the `server` folder on your computer, run the command `php -S localhost:8080`
+- In your browser, go to http://localhost:8080
 	- You should see the installation screen of Nextcloud, asking for admin username and password
 	- So choose an admin username & password
 	- Expand the change data folder to `/var/www/nextcloud-data`
 
 :tada:
 
-Now do your changes and use Github Desktop to push them! Every time you want to develop on Nextcloud, you just need to start your VM. :)
+Now do your changes and use Github Desktop to push them! Every time you want to develop on Nextcloud, you just need to run `php -S localhost:8080`. :)
