@@ -3,6 +3,10 @@
 
 ## Install dependencies
 
+If you are running macOS 10.13 (High Sierra) or later, all dependencies are pre-installed.
+
+For older versions:
+
 - Install php7 and sqlite via Homebrew
 - Install the php7 extensions too
 
