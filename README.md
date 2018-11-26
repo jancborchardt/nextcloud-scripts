@@ -48,3 +48,23 @@ $ sudo apache2ctl restart
 ###  :smiley_cat: Ubuntu
 
 WIP
+
+### 🔒 If your home folder is encrypted
+
+The symlinks will not work, so you need to work around that as described at this link: https://stackoverflow.com/a/39037942
+
+```
+$ sudo apt-get install lsyncd
+```
+Starting the background service
+```
+$ sudo lsyncd -rsync /home/<username>/nextcloud/ /var/www/html/nextcloud/
+```
+Additionally set the permissions on the lsynced files in /var/www
+```
+sudo chown www-data:www-data /var/www/data
+sudo chown :www-data /var/www/config/
+sudo chmod 775 /var/www/config/
+sudo chown :www-data /var/www/apps/
+sudo chmod 775 /var/www/apps/
+```
