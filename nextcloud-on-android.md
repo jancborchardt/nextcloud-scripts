@@ -8,7 +8,7 @@
 - Clone the 3rdparty submodule too, local path `nextcloud/3rdparty`
 
 ## Install (and optionally clone as well) with [Termux](https://termux.com/)
-- First install some dependencies `pkg install php php-fpm sqlite coreutils`openssl-tool
+- First install some dependencies `pkg install php php-fpm sqlite coreutils openssl-tool`
 - Allow Termux to access storage outside of own folder `termux-setup-storage`
 - (If you want to clone with Termux: `cd /storage/emulated/0/ && git clone https://github.com/nextcloud/server.git nextcloud`)
 - Get the Nextcloud submodules `cd /storage/emulated/0/nextcloud/ && git submodule update --init`
